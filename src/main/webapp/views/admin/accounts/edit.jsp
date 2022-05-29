@@ -9,11 +9,11 @@
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/css/bootstrap.min.css" ></link>
 </head>
 <body>
-	<div class="mt-5 col-10 offset-1">
+	<div class="mt-5 col-10 offset-1  border border-primary p-2 bg-light">
 		<form:form
-			modelAttribute="account"
 			method="POST"
-			action="${ pageContext.request.contextPath }/admin/accounts/update/${user.id}">
+			modelAttribute="account"
+			action="${ pageContext.request.contextPath }/admin/accounts/update/${account.id}">
 			<input type="hidden" name="_method" value="put" />
 			<div class="form-group mt-3">
 				<label for="name">Name</label>

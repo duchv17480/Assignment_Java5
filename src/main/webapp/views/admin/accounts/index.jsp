@@ -9,7 +9,7 @@
 </head>
 <link rel="stylesheet" href="/Assignment_Java5/css/bootstrap.min.css"></link>
 <body>
-	<div class="col-10 offset-1 mt-5 border border-primary p-2">
+	<div class="col-10 offset-1 mt-5 border border-primary p-2 bg-light">
 		<form method="GET"
 			action="${ pageContext.request.contextPath }/admin/accounts">
 			<div class="row col-12 mt-2">
@@ -40,7 +40,7 @@
 		</form>
 	</div>
 
-	<div class="mt-5 col-10 offset-1 border border-primary p-2">
+	<div class="mt-5 col-10 offset-1 border border-primary p-2 bg-light">
 		<div class="">
 			<a class="btn btn-success col-1"
 				href="${ pageContext.request.contextPath }/admin/accounts/create">Create</a>

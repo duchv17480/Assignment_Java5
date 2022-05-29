@@ -10,7 +10,7 @@
 	href="${ pageContext.request.contextPath }/css/bootstrap.min.css"></link>
 </head>
 <body>
-	<div class="mt-5 col-10 offset-1 border border-primary p-2">
+	<div class="mt-5 col-10 offset-1 border border-primary p-2 bg-light mb-5">
 		<form:form method="POST"
 			action="${ pageContext.request.contextPath }/admin/accounts/store"
 			modelAttribute="account">

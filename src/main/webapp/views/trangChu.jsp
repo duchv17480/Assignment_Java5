@@ -86,7 +86,7 @@
 						<div class="row">
 							<img src="img/ducPolyjpg.jpg" alt="">
 							<div class="row text-center">
-								<h4>HỌC LẬP TRÌNH THEO ĐUỔI ĐAM MÊ</h4>
+								<h4>HOÀNG VIỆT ĐỨC</h4>
 							</div>
 						</div>
 					</div>
@@ -96,7 +96,7 @@
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item"><a href="">Lap Top</a><span
 							data-bs-toggle="tooltip" data-bs-placement="top" title="Giảm 90%"
-							class="badge bg-danger"> Khuyến mãi</span></li>
+							class="badge bg-danger">Điện Thoại</span></li>
 						<li class="list-group-item"><a href="">Lâp trình jav</a></li>
 						<li class="list-group-item"><a href="">Lập Trình C#</a></li>
 						<li class="list-group-item"><a href="">SQL sever</a></li>
@@ -111,7 +111,7 @@
 					</ul>
 				</div>
 			</aside>
-			<article class="col-md-9">
+			<article class="col-md-9 p-0" style="background-color: pink" >
 				<jsp:include page="${ view }"></jsp:include>
 			</article>
 		</div>
