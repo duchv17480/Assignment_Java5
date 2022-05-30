@@ -23,16 +23,16 @@
 			</thead>
 
 			<tbody>
-				<c:forEach items="${ pageData.content }" var="cate">
+				<c:forEach items="${ listCate}" var="cate">
 					<tr>
 						<td>${cate.id}</td>
-						<td>${cate.categoryName}</td>
+						<td>${cate.name}</td>
 						<td><a class="btn btn-primary"
-							href="${ pageContext.request.contextPath }/admin/categories/edit/${user.id}">Update</a>
+							href="${ pageContext.request.contextPath }/admin/categories/edit/${cate.id}">Update</a>
 						</td>
 						<td>
 							<form
-								action="${ pageContext.request.contextPath }/admin/categories/delete/${user.id}"
+								action="${ pageContext.request.contextPath }/admin/categories/delete/${cate.id}"
 								method="POST">
 								<button class="btn btn-danger">Delete</button>
 							</form>
