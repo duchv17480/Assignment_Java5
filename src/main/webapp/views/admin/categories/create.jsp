@@ -19,8 +19,8 @@
 		</div>
 		<div class="form-group mt-3">
 			<label>Name</label>
-			<form:input path="categoryName" type="categoryName" class="form-control" />
-			<form:errors path="categoryName" element="span" cssClass="text-danger" />
+			<form:input path="name" type="name" class="form-control" />
+			<form:errors path="name" element="span" cssClass="text-danger" />
 		</div>
 		<button>save</button>
 	</form:form>

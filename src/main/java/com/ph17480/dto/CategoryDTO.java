@@ -10,6 +10,6 @@ public class CategoryDTO {
 	private Integer id;
 	@NotNull
 	@NotBlank
-	private String categoryName;
+	private String name;
 
 }

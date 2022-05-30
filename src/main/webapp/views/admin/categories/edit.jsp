@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form:form method="POST"
-		ction="${ pageContext.request.contextPath }/admin/categories/update/${cate.id}"
+		action="${ pageContext.request.contextPath }/admin/categories/update/${cate.id}"
 		modelAttribute="cate">
 		<div class="form-group mt-3">
 			<label>ID</label>
@@ -18,9 +18,9 @@
 		</div>
 		<div class="form-group mt-3">
 			<label>Name</label>
-			<form:input path="categoryName" type="categoryName"
+			<form:input path="name" type="name"
 				class="form-control" />
-			<form:errors path="categoryName" element="span"
+			<form:errors path="name" element="span"
 				cssClass="text-danger" />
 		</div>
 		<button>save</button>

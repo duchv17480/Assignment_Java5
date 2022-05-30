@@ -46,7 +46,7 @@ public class CategoryController {
 	@PostMapping(value = "/store")
 	public String store(Model model, @Valid @ModelAttribute("cate") CategoryDTO cateDTO, BindingResult result) {
 		if (result.hasErrors()) {
-			model.addAttribute("view","/views/admin/accounts/create.jsp");
+			model.addAttribute("view","/views/admin/categories/create.jsp");
 			return "trangChu";
 		} else {
 			Category entity = this.cateMaper.convertToEntity(cateDTO);
@@ -66,20 +66,20 @@ public class CategoryController {
 	public String update(Model model, @Valid @ModelAttribute("cate") CategoryDTO cate, BindingResult result) {
 		if (result.hasErrors()) {
 			System.out.println("có lỗi");
-			model.addAttribute("view","/views/admin/accounts/edit.jsp");
+			model.addAttribute("view","/views/admin/categories/edit.jsp");
 			return "trangChu";
 		} else {
 			System.out.println("k loi");
 			Category entity = this.cateMaper.convertToEntity(cate);
 			this.cateRepo.save(entity);
-			return "redirect:/admin/accounts";
+			return "redirect:/admin/categories";
 		}
 	}
 
 	@PostMapping(value = "/delete/{id}")
 	public String delete(@PathVariable("id") Integer id) {
 		this.cateRepo.deleteById(id);
-		return "redirect:/admin/accounts";
+		return "redirect:/admin/categories";
 	}
 
 }
