@@ -79,7 +79,7 @@
 				</div>
 			</div>
 		</nav>
-		<div class="row">
+		<div class="row m-0">
 			<aside class="col-md-3">
 				<div class="card mt-2">
 					<div class="card-body">
@@ -111,7 +111,7 @@
 					</ul>
 				</div>
 			</aside>
-			<article class="col-md-9 p-0" style="background-color: pink" >
+			<article class="col-md-9 " style="background-color: pink" >
 				<jsp:include page="${ view }"></jsp:include>
 			</article>
 		</div>
