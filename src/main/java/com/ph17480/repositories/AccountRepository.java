@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.ph17480.entity.Account;
 public interface AccountRepository extends JpaRepository<Account, Integer>{
-//	@Query("SELECT entity FROM accounts entity WHERE email=:email")
-//	public Account finByEmail(@Param("email") String email);
+	@Query("SELECT entity FROM Account entity WHERE email=:email")
+	public Account finByEmail(@Param("email") String email);
 }

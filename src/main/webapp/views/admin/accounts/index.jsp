@@ -9,6 +9,7 @@
 </head>
 <link rel="stylesheet" href="/Assignment_Java5/css/bootstrap.min.css"></link>
 <body>
+	<h1 class="text-center pt-2">Quản Lý Account</h1>
 	<div class="col-10 offset-1 mt-5 border border-primary p-2 bg-light">
 		<form method="GET"
 			action="${ pageContext.request.contextPath }/admin/accounts">

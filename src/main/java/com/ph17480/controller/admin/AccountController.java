@@ -48,7 +48,7 @@ public class AccountController {
 				: Sort.by(Direction.DESC, sortField);
 
 		int page = pageParam == null ? 0 : Integer.parseInt(pageParam);
-		int limit = limitParam == null ? 1 : Integer.parseInt(limitParam);
+		int limit = limitParam == null ? 2 : Integer.parseInt(limitParam);
 		Pageable pageable = PageRequest.of(page, limit, sort);
 
 		Page pageData = this.accountRepo.findAll(pageable);

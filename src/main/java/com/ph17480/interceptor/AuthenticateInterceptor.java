@@ -13,7 +13,7 @@ public class AuthenticateInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("user") == null) {
+		if (session.getAttribute("accounts") == null) {
 			session.setAttribute("error", "Vui lòng đăng nhập");
 			response.sendRedirect(request.getContextPath() + "/login");
 			return false;
