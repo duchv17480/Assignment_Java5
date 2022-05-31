@@ -120,7 +120,7 @@
 		</footer>
 	</div>
 </body>
-<script src="/Assignment_Java5/jquery.min.js"></script>
-<script src="/Assignment_Java5/popper.min.js"></script>
-<script src="/Assignment_Java5/bootstrap.min.js"></script>
+<script src="/Assignment_Java5/js/jquery.min.js"></script>
+<script src="/Assignment_Java5/js/popper.min.js"></script>
+<script src="/Assignment_Java5/js/bootstrap.min.js"></script>
 </html>
