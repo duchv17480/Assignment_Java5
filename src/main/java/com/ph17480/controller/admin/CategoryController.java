@@ -47,7 +47,7 @@ public class CategoryController {
 	public String store(Model model, @Valid @ModelAttribute("cate") CategoryDTO cateDTO, BindingResult result) {
 		if (result.hasErrors()) {
 			model.addAttribute("view","/views/admin/categories/create.jsp");
-			return "trangChu";
+			return "redirect:/admin/categories/create";
 		} else {
 			Category entity = this.cateMaper.convertToEntity(cateDTO);
 			this.cateRepo.save(entity);

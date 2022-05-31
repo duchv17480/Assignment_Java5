@@ -38,11 +38,11 @@
 						<td>${product.available}</td>
 						<td>${product.category.name}</td>
 						<td><a class="btn btn-primary"
-							href="${ pageContext.request.contextPath }/admin/categories/edit/${cate.id}">Update</a>
+							href="${ pageContext.request.contextPath }/admin/products/edit/${product.id}">Update</a>
 						</td>
 						<td>
 							<form
-								action="${ pageContext.request.contextPath }/admin/categories/delete/${cate.id}"
+								action="${ pageContext.request.contextPath }/admin/products/delete/${product.id}"
 								method="POST">
 								<button class="btn btn-danger">Delete</button>
 							</form>
