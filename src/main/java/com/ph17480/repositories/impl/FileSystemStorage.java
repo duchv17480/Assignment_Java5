@@ -30,7 +30,7 @@ public class FileSystemStorage implements StorageService{
 	@Override
 	public void store (MultipartFile file , String storedFileName) {
 		try {
-			if (!file.isEmpty()) {
+			if (file.isEmpty()) {
 				throw new StorageException("File to store empty file");
 			}
 			Path destinationFile = this.rootlocation.resolve(Paths.get(storedFileName))

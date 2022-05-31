@@ -69,13 +69,12 @@ public class ProductController {
 		Category category = new Category();
 		category.setId(proDTO.getCategory());
 		entity.setCategory(category);
-
-//		if (proDTO.getImageFile()==null) {
-//			UUID uuid = UUID.randomUUID();
-//			String uuString = uuid.toString();
-//			entity.setImage(storageService.getStoredFileName(proDTO.getImageFile(), uuString));
-//			storageService.store(proDTO.getImageFile(), entity.getImage());
-//		}
+		if (!proDTO.getImageFile().isEmpty()) {
+			UUID uuid = UUID.randomUUID();
+			String uuString = uuid.toString();
+			entity.setImage(storageService.getStoredFileName(proDTO.getImageFile(), uuString));
+			storageService.store(proDTO.getImageFile(), entity.getImage());
+		}
 		this.proRepo.save(entity);
 		return "redirect:/admin/products";
 	}
