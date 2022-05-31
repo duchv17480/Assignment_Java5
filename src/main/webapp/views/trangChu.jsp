@@ -84,7 +84,6 @@
 				<div class="card mt-2">
 					<div class="card-body">
 						<div class="row">
-							<img src="img/ducPolyjpg.jpg" alt="">
 							<div class="row text-center">
 								<h4>HOÀNG VIỆT ĐỨC</h4>
 							</div>
