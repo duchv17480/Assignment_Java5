@@ -18,15 +18,19 @@ public class ProductDTO {
 	@NotBlank
 	private String name;
 
+	@NotNull
+	@NotBlank
 	private String image;
 	
-	private MultipartFile imageFile;
 	@NotNull
 	private Integer price;
+	
 	@NotNull(message = "vui lòng chọn ngày")
 	private Date createDate;
+	
 	@NotNull
 	private Integer available;
+	
 	@NotNull
 	private Integer category;
 }

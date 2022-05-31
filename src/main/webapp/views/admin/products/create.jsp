@@ -47,22 +47,9 @@
 				</div>
 			</div>
 			<div class="col-5">
-				<script>
-					function chooseFile(fileInput) {
-						if (fileInput.files && fileInput.files[0]) {
-							var reader = new FileReader();
-							reader.onload = function(e) {
-								$('#image').attr('src', e.target.result);
-							}
-							reader.readAsDataURL(fileInput.files[0]);
-						}
-					}
-				</script>
-				<img src=" https://mdbcdn.b-cdn.net/img/Photos/Slides/img (15).webp" width="70%" id="image">
 				<div class="form-group mt-3">
 					<label>Image</label> 
-					<input name="imageFile" type="file"
-						onchange="chooseFile(this)" class="form-control" />
+					<form:input path="image" type="file" class="form-control" />
 				</div>
 			</div>
 		</div>
