@@ -1,5 +1,7 @@
 package com.ph17480.controller.admin;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -48,9 +50,12 @@ public class AccountController {
 				: Sort.by(Direction.DESC, sortField);
 
 		int page = pageParam == null ? 0 : Integer.parseInt(pageParam);
-		int limit = limitParam == null ? 2 : Integer.parseInt(limitParam);
+		int limit = limitParam == null ? 4 : Integer.parseInt(limitParam);
 		Pageable pageable = PageRequest.of(page, limit, sort);
-
+		
+		String timKiem = request.getParameter("timKiem");
+		List<Account> ds = this.accountRepo.findByUserNameLike("timKiem");
+		
 		Page pageData = this.accountRepo.findAll(pageable);
 
 		model.addAttribute("pageData", pageData);

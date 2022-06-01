@@ -36,7 +36,8 @@
 			<div>
 				<button class="btn btn-primary mt-4">Lọc</button>
 				<a href="${ pageContext.request.contextPath }/admin/accounts"
-					class="btn btn-danger mt-4" type="reset"> Reset </a>
+					class="btn btn-danger mt-4" type="reset"> Reset </a> 
+					tìm kiếm : <input type="text" name="timKiem">
 			</div>
 		</form>
 	</div>
