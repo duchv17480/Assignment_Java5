@@ -2,6 +2,7 @@ package com.ph17480.dto;
 
 import java.sql.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -24,6 +25,7 @@ public class ProductDTO {
 	private String image;
 	
 	@NotNull
+	@Min(value = 0, message = "price phải lớn hơn 0") 
 	private Integer price;
 	
 	@NotNull(message = "vui lòng chọn ngày")

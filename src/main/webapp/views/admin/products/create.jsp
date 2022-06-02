@@ -34,8 +34,8 @@
 				</div>
 				<div class="form-group mt-3">
 					<label>Available</label>
-					<form:input path="Available" class="form-control" />
-					<form:errors path="Available" element="span" cssClass="text-danger" />
+					<form:input path="available" class="form-control" />
+					<form:errors path="available" element="span" cssClass="text-danger" />
 				</div>
 				<div class="form-group mt-4">
 					<label>Danh mục</label>
