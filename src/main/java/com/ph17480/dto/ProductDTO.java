@@ -18,8 +18,8 @@ public class ProductDTO {
 	@NotBlank
 	private String name;
 
-	@NotNull
-	@NotBlank
+//	@NotNull
+//	@NotBlank
 	private String image;
 	
 	@NotNull
