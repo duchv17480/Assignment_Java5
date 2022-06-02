@@ -1,6 +1,5 @@
 package com.ph17480.entity;
 
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,7 +28,7 @@ public class Order {
 	private Integer id;
 	
 	@Column(name="create_date")
-	private Date createDate;
+	private String createDate;
 	
 	@Column(name="address")
 	private String address;

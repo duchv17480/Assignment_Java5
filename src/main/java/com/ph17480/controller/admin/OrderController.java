@@ -1,16 +1,28 @@
 package com.ph17480.controller.admin;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ph17480.dto.CategoryDTO;
+import com.ph17480.dto.OrderDTO;
 import com.ph17480.entity.Account;
+import com.ph17480.entity.Category;
 import com.ph17480.entity.Order;
+import com.ph17480.mappers.OrderMapper;
 import com.ph17480.repositories.AccountRepository;
 import com.ph17480.repositories.OrderRepositories;
 
@@ -23,6 +35,12 @@ public class OrderController {
 	
 	@Autowired
 	private AccountRepository accountRepo;
+	
+	@Autowired
+	private OrderMapper orderMapper;
+	
+	@Autowired
+	private HttpServletRequest request;
 	
 	@GetMapping
 	public String index (Model model) {
@@ -38,6 +56,23 @@ public class OrderController {
 		model.addAttribute("view","/views/admin/orders/create.jsp");
 		return "trangChu";
 		
+	}
+	@PostMapping(value = "/store")
+	public String store(Model model, @Valid @ModelAttribute("order") OrderDTO orderDTO, BindingResult result) throws ParseException {
+		if (result.hasErrors()) {
+			System.out.println("loi");
+			model.addAttribute("view","/views/admin/orders/create.jsp");
+			return "redirect:/admin/categories/create";
+		} else {
+			String getDate = request.getParameter("date");
+			Order entity = this.orderMapper.convertToEntity(orderDTO);
+			Account account = new Account();
+			account.setId(orderDTO.getUser());
+			entity.setUser(account);
+			entity.setCreateDate(getDate);
+			this.orderRepo.save(entity);
+			return "redirect:/admin/orders";
+		}
 	}
 	
 

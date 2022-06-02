@@ -1,6 +1,6 @@
 package com.ph17480.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 
@@ -15,7 +15,7 @@ public class OrderDTO {
 	
 	private Integer id;
 
-	private Date createDate;
+	private String createDate;
 
 	private String address;
 	

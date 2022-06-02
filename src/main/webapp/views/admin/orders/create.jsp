@@ -16,12 +16,13 @@
 		modelAttribute="order">
 		<div class="form-group mt-3">
 			<label>Create Date</label>
-			<p name="createDate" id ="createDate" class="form-control" />
-		</div>
-		<div class="form-group mt-3">
-			<label>Address</label>
-			<form:input path="address" class="form-control" />
-			<form:errors path="address" element="span" cssClass="text-danger" />
+			<div>
+				<input id="date" name="date">
+			</div>
+			<script>
+				document.getElementById("date").value = new Date().toJSON()
+						.slice(0, 10)
+			</script>
 		</div>
 		<div class="form-group mt-3">
 			<label>Address</label>
@@ -39,9 +40,4 @@
 		<button>save</button>
 	</form:form>
 </body>
-<script>
-	var today = new Date();
-	var date = today.getDate() + '-' + (today.getMonth() + 1) + '-'+ today.getFullYear();
-	document.getElementById("createDate").innerHTML = date;
-</script>
 </html>
