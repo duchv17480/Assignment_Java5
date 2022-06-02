@@ -68,7 +68,7 @@ public class ProductController {
 	@PostMapping("/store")
 	public String store(@Valid @ModelAttribute("product") ProductDTO proDTO,
 			BindingResult result, Model model,
-			@RequestParam("image") MultipartFile uploadFile
+			@RequestParam("imageFile") MultipartFile uploadFile
 			) {
 		if (result.hasErrors()) {
 			List<Category> listCate = this.cateRepo.findAll();
@@ -76,12 +76,11 @@ public class ProductController {
 			model.addAttribute("view","/views/admin/products/create.jsp");
 			return "trangChu";
 		}
-		String image = request.getParameter("image");
 		Product entity = proMapper.convertToEntity(proDTO);
 		Category category = new Category();
 		category.setId(proDTO.getCategory());
 		entity.setCategory(category);
-		entity.setImage(image);
+		entity.setImage(uploadFile.getOriginalFilename());
 		this.uploadUtils.handleUploadFile(uploadFile);
 		this.proRepo.save(entity);
 		return "redirect:/admin/products";

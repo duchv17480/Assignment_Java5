@@ -17,7 +17,7 @@
 		<div class="row">
 			<div class="col-7">
 				<div class="form-group mt-3">
-					<label>Username</label>
+					<label>Product name</label>
 					<form:input path="name" class="form-control" />
 					<form:errors path="name" element="span" cssClass="text-danger" />
 				</div>
@@ -49,9 +49,10 @@
 			<div class="col-5">
 				<div class="form-group mt-3">
 					<label>Image</label> 
-					<input name ="image" type="file" class="form-control" />
+					<input name ="imageFile" type="file" class="form-control" />
 				</div>
 			</div>
+
 		</div>
 		<button>save</button>
 	</form:form>

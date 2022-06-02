@@ -32,7 +32,9 @@
 					<tr>
 						<td>${product.id}</td>
 						<td>${product.name}</td>
-						<td>${product.image}</td>
+						<td><img class="logo" alt=""
+							src="${pageContext.request.contextPath}/storage/${ product.image }"
+							style="height: 90px;width: 130px"></td>
 						<td>${product.price}</td>
 						<td>${product.createDate}</td>
 						<td>${product.available}</td>
