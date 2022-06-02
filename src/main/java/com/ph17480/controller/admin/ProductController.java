@@ -27,7 +27,6 @@ import com.ph17480.entity.Product;
 import com.ph17480.mappers.ProductMapper;
 import com.ph17480.repositories.CategoryRepository;
 import com.ph17480.repositories.ProductRepositories;
-import com.ph17480.repositories.StorageService;
 import com.ph17480.utils.uploadFileUtils;
 
 @Controller
@@ -43,9 +42,6 @@ public class ProductController {
 	@Autowired
 	private ProductMapper proMapper;
 
-	@Autowired
-	private StorageService storageService;
-	
 	@Autowired
 	private uploadFileUtils uploadUtils;
 	
@@ -73,7 +69,6 @@ public class ProductController {
 	public String store(@Valid @ModelAttribute("product") ProductDTO proDTO,
 			BindingResult result, Model model,
 			@RequestParam("image") MultipartFile uploadFile
-			
 			) {
 		if (result.hasErrors()) {
 			List<Category> listCate = this.cateRepo.findAll();
