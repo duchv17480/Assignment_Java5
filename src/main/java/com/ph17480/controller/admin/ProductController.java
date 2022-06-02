@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ph17480.dto.AccountDTO;
 import com.ph17480.dto.CategoryDTO;
 import com.ph17480.dto.ProductDTO;
+import com.ph17480.entity.Account;
 import com.ph17480.entity.Category;
 import com.ph17480.entity.Product;
 import com.ph17480.mappers.ProductMapper;
@@ -117,5 +119,12 @@ public class ProductController {
 	public String delete(@PathVariable("id")Integer id) {
 		this.proRepo.deleteById(id);
 		return "redirect:/admin/products";
+	}
+	@GetMapping(value = "{id}")
+	public String show(Model model, @PathVariable("id") Product entity) {
+		ProductDTO product = this.proMapper.convertToDTO(entity);
+		model.addAttribute("product", product);
+		model.addAttribute("view","/views/admin/accounts/show.jsp");
+		return "trangChu";
 	}
 }
