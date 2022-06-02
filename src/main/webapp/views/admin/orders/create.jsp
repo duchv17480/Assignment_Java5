@@ -16,7 +16,7 @@
 		modelAttribute="order">
 		<div class="form-group mt-3">
 			<label>Create Date</label>
-			<form:input path="createDate"  name="createDate" id ="createDate" class="form-control" />
+			<p name="createDate" id ="createDate" class="form-control" />
 		</div>
 		<div class="form-group mt-3">
 			<label>Address</label>
