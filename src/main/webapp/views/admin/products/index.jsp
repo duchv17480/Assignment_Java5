@@ -43,13 +43,29 @@
 						<td><a class="btn btn-primary"
 							href="${ pageContext.request.contextPath }/admin/products/edit/${product.id}">Update</a>
 						</td>
-						<td>
-							<form
-								action="${ pageContext.request.contextPath }/admin/products/delete/${product.id}"
-								method="POST">
-								<button class="btn btn-danger">Delete</button>
-							</form>
-						</td>
+						<td><button type="button" class="btn btn-danger"
+								data-bs-toggle="modal" data-bs-target="#p${product.id}">Xóa</button>
+							<!-- Modal -->
+							<div class="modal fade" id="p${product.id }" tabindex="-1"
+								aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+											<button type="button" class="btn-close"
+												data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">Bạn có chắc chắn muốn xóa không?</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-bs-dismiss="modal">Hủy</button>
+											<a class="btn btn-danger"
+												href="${ pageContext.request.contextPath }/admin/products/delete/${product.id}">Xóa</a>
+										</div>
+									</div>
+								</div>
+							</div></td>
+
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -123,9 +123,9 @@ public class ProductController {
 		this.proRepo.save(entity);
 		return "redirect:/admin/products";
 	}
-	@PostMapping("/delete/{id}")
-	public String delete(@PathVariable("id")Integer id) {
-		this.proRepo.deleteById(id);
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable("id")Product id) {
+		this.proRepo.delete(id);
 		return "redirect:/admin/products";
 	}
 	@GetMapping(value = "{id}")
