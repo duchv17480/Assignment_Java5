@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div class="mt-5 col-10 offset-1 border border-primary p-2 bg-light">
+		<h1 class="text-center pt-2">Quản Lý Product</h1>
 		<div class="">
 			<a class="btn btn-success col-1"
 				href="${ pageContext.request.contextPath }/admin/products/create">Create</a>
@@ -28,13 +29,13 @@
 			</thead>
 
 			<tbody>
-				<c:forEach items="${ listPro }" var="product">
+				<c:forEach items="${ pageData.content }" var="product">
 					<tr>
 						<td>${product.id}</td>
 						<td>${product.name}</td>
 						<td><img class="logo" alt=""
 							src="${pageContext.request.contextPath}/storage/${ product.image }"
-							style="height: 90px;width: 130px"></td>
+							style="height: 90px; width: 130px"></td>
 						<td>${product.price}</td>
 						<td>${product.createDate}</td>
 						<td>${product.available}</td>
@@ -54,5 +55,16 @@
 			</tbody>
 		</table>
 		<div>
+			<c:if test="${not empty pageData.content }">
+				<ul class="pagination">
+					<c:forEach begin="0" end="${ pageData.totalPages - 1 }"
+						varStatus="page">
+						<li class="page-item"><a class="page-link"
+							href="${ pageContext.request.contextPath }/admin/products?page=${ page.index }">${ page.index + 1 }</a>
+						</li>
+					</c:forEach>
+				</ul>
+			</c:if>
+		</div>
 </body>
 </html>

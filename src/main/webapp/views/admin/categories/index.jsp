@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div class="mt-5 col-10 offset-1 border border-primary p-2 bg-light">
+		<h1 class="text-center pt-2">Quản Lý Category</h1>
 		<div class="">
 			<a class="btn btn-success col-1"
 				href="${ pageContext.request.contextPath }/admin/categories/create">Create</a>

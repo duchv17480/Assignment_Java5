@@ -12,17 +12,12 @@
 </head>
 <body>
 	<form:form method="POST"
-		action="${ pageContext.request.contextPath }/admin/orders/store"
+		action="${ pageContext.request.contextPath }/admin/orders/update/${ order.id }"
 		modelAttribute="order">
 		<div class="form-group mt-3">
 			<label>Create Date</label>
-			<div>
-				<input id="date" name="date" readonly="true" class="form-control">
-			</div>
-			<script>
-				document.getElementById("date").value = new Date().toJSON()
-						.slice(0, 10)
-			</script>
+			<form:input path="createDate" class="form-control" readonly="true" />
+			<form:errors path="createDate" element="span" cssClass="text-danger" />
 		</div>
 		<div class="form-group mt-3">
 			<label>Address</label>
@@ -37,7 +32,7 @@
 				</c:forEach>
 			</form:select>
 		</div>
-		<button class="btn btn-info mt-4">save</button>
+		<button class="btn btn-info mt-4">Update</button>
 	</form:form>
 </body>
 </html>

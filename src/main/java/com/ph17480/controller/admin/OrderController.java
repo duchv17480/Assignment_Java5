@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -57,8 +58,16 @@ public class OrderController {
 		return "trangChu";
 		
 	}
+	@GetMapping("/edit/{id}")
+	public String edit(Model model , @PathVariable("id") Order order) {
+		List<Account> listaccount = accountRepo.findAll();
+		model.addAttribute("listaccount", listaccount);
+		model.addAttribute("order",order);
+		model.addAttribute("view","/views/admin/orders/edit.jsp");
+		return "trangChu";
+	}
 	@PostMapping(value = "/store")
-	public String store(Model model, @Valid @ModelAttribute("order") OrderDTO orderDTO, BindingResult result) throws ParseException {
+	public String store(Model model, @Valid @ModelAttribute("order") OrderDTO orderDTO, BindingResult result){
 		if (result.hasErrors()) {
 			System.out.println("loi");
 			model.addAttribute("view","/views/admin/orders/create.jsp");
@@ -74,6 +83,29 @@ public class OrderController {
 			return "redirect:/admin/orders";
 		}
 	}
+	@PostMapping(value = "/update/{id}")
+	public String update(Model model, @Valid @ModelAttribute("order") OrderDTO orderDTO, BindingResult result){
+		if (result.hasErrors()) {
+			System.out.println("loi");
+			model.addAttribute("view","/views/admin/orders/create.jsp");
+			return "redirect:/admin/categories/create";
+		} else {
+			String getDate = request.getParameter("createDate");
+			Order entity = this.orderMapper.convertToEntity(orderDTO);
+			Account account = new Account();
+			account.setId(orderDTO.getUser());
+			entity.setUser(account);
+			entity.setCreateDate(getDate);
+			this.orderRepo.save(entity);
+			return "redirect:/admin/orders";
+		}
+	}
+	@PostMapping("/delete/{id}")
+	public String delete(@PathVariable("id")Order order) {
+		this.orderRepo.delete(order);
+		return "redirect:/admin/orders";
+	}
+	
 	
 
 }

@@ -11,13 +11,13 @@ import com.ph17480.interceptor.AuthenticateInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer{
-//	@Autowired
-//	private AuthenticateInterceptor authenInterceptor;
-//	
-//	@Override
-//	public void addInterceptors(InterceptorRegistry registry) {
-//		registry.addInterceptor(authenInterceptor)
-//			.addPathPatterns("/admin/**", "/accounts/**")
-//			.excludePathPatterns("/login", "/register");
-//	}
+	@Autowired
+	private AuthenticateInterceptor authenInterceptor;
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(authenInterceptor)
+			.addPathPatterns("/admin/**")
+			.excludePathPatterns("/login");
+	}
 }

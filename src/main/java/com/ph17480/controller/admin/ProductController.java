@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -53,8 +56,13 @@ public class ProductController {
 
 	@GetMapping
 	public String index(Model model) {
-		List<Product> litsPro = this.proRepo.findAll();
-		model.addAttribute("listPro", litsPro);
+		String pageParam = request.getParameter("page");
+		String limitParam = request.getParameter("limit");
+		int page = pageParam == null ? 0 : Integer.parseInt(pageParam);
+		int limit = limitParam == null ? 3 : Integer.parseInt(limitParam);
+		Pageable pageable = PageRequest.of(page, limit);
+		Page pageData = this.proRepo.findAll(pageable);
+		model.addAttribute("pageData", pageData);
 		model.addAttribute("view", "/views/admin/products/index.jsp");
 		return "trangChu";
 	}

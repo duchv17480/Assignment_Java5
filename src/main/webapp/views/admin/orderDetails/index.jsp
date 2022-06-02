@@ -12,32 +12,34 @@
 	<h1 class="text-center pt-2">Quản Lý Order Detail</h1>
 		<div class="">
 			<a class="btn btn-success col-1"
-				href="${ pageContext.request.contextPath }/admin/orders/create">Create</a>
+				href="${ pageContext.request.contextPath }/admin/details/create">Create</a>
 		</div>
 		<table class="table table-strip table-hover table-bordered mt-3">
 			<thead>
 				<tr>
 					<td>Id</td>
-					<td>Create Date</td>
-					<td>Address</td>
-					<td>User</td>
+					<td>Order Id</td>
+					<td>Product</td>
+					<td>Price</td>
+					<td>Quantity</td>
 					<td colspan="2" class="text-center">Thao tác</td>
 				</tr>
 			</thead>
 
 			<tbody>
-				<c:forEach items="${ listorder}" var="order">
+				<c:forEach items="${ listOrderDetail}" var="detail">
 					<tr>
-						<td>${order.id}</td>
-						<td>${order.createDate}</td>
-						<td>${order.address}</td>
-						<td>${order.user.username}</td>
+						<td>${detail.id}</td>
+						<td>${detail.order.id}</td>
+						<td>${detail.product.name}</td>
+						<td>${detail.price}</td>
+						<td>${detail.quantity}</td>
 						<td><a class="btn btn-primary"
-							href="${ pageContext.request.contextPath }/admin/orders/edit/${order.id}">Update</a>
+							href="${ pageContext.request.contextPath }/admin/orders/edit/${detail.id}">Update</a>
 						</td>
 						<td>
 							<form
-								action="${ pageContext.request.contextPath }/admin/orders/delete/${order.id}"
+								action="${ pageContext.request.contextPath }/admin/details/delete/${detail.id}"
 								method="POST">
 								<button class="btn btn-danger">Delete</button>
 							</form>

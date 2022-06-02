@@ -53,8 +53,8 @@ public class AccountController {
 		int limit = limitParam == null ? 4 : Integer.parseInt(limitParam);
 		Pageable pageable = PageRequest.of(page, limit, sort);
 		
-		String timKiem = request.getParameter("timKiem");
-		List<Account> ds = this.accountRepo.findByUserNameLike("timKiem");
+//		String timKiem = request.getParameter("timKiem");
+//		List<Account> ds = this.accountRepo.findByUserNameLike("timKiem");
 		
 		Page pageData = this.accountRepo.findAll(pageable);
 
