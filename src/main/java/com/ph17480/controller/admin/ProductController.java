@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ph17480.dto.CategoryDTO;
 import com.ph17480.dto.ProductDTO;
 import com.ph17480.entity.Category;
 import com.ph17480.entity.Product;
@@ -64,9 +65,36 @@ public class ProductController {
 		model.addAttribute("view", "/views/admin/products/create.jsp");
 		return "trangChu";
 	}
-
+	@GetMapping( value= "/edit/{id}")
+	public String edit(Model model, @PathVariable("id") Product entity) {
+		model.addAttribute("product", entity);
+		List<Category> listCate = this.cateRepo.findAll();
+		model.addAttribute("listCate", listCate);
+		model.addAttribute("view","/views/admin/products/edit.jsp");
+		return "trangChu";
+	}
 	@PostMapping("/store")
 	public String store(@Valid @ModelAttribute("product") ProductDTO proDTO,
+			BindingResult result, Model model,
+			@RequestParam("imageFile") MultipartFile uploadFile
+			) {
+		if (result.hasErrors()) {
+			List<Category> listCate = this.cateRepo.findAll();
+			model.addAttribute("listCate", listCate);
+			model.addAttribute("view","/views/admin/products/create.jsp");
+			return "trangChu";
+		}
+		Product entity = proMapper.convertToEntity(proDTO);
+		Category category = new Category();
+		category.setId(proDTO.getCategory());
+		entity.setCategory(category);
+		entity.setImage(uploadFile.getOriginalFilename());
+		this.uploadUtils.handleUploadFile(uploadFile);
+		this.proRepo.save(entity);
+		return "redirect:/admin/products";
+	}
+	@PostMapping(value="/update/{id}")
+	public String update(@Valid @ModelAttribute("product") ProductDTO proDTO,
 			BindingResult result, Model model,
 			@RequestParam("imageFile") MultipartFile uploadFile
 			) {

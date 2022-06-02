@@ -92,7 +92,7 @@ public class AccountController {
 
 	@GetMapping(value = "/edit/{id}")
 	public String edit(Model model, @PathVariable("id") Account entity) {
-		AccountDTO account = this.accountMapper.convertToDTO(entity);
+//		AccountDTO account = this.accountMapper.convertToDTO(entity);
 		model.addAttribute("account", entity);
 		model.addAttribute("view","/views/admin/accounts/edit.jsp");
 		return "trangChu";

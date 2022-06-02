@@ -12,7 +12,7 @@
 </head>
 <body>
 	<form:form method="POST"
-		action="${ pageContext.request.contextPath }/admin/products/store"
+		action="${ pageContext.request.contextPath }/admin/products/update/${ product.id }"
 		modelAttribute="product" enctype="multipart/form-data">
 		<div class="row">
 			<div class="col-9">
@@ -56,7 +56,7 @@
 			</div>
 
 		</div>
-		<button>save</button>
+		<button>update</button>
 	</form:form>
 </body>
 <script>
