@@ -13,7 +13,7 @@
 <body>
 	<form:form method="POST"
 		action="${ pageContext.request.contextPath }/admin/products/store"
-		modelAttribute="product">
+		modelAttribute="product" enctype="multipart/form-data">
 		<div class="row">
 			<div class="col-7">
 				<div class="form-group mt-3">
@@ -49,7 +49,7 @@
 			<div class="col-5">
 				<div class="form-group mt-3">
 					<label>Image</label> 
-					<form:input path="image" type="file" class="form-control" />
+					<input name ="image" type="file" class="form-control" />
 				</div>
 			</div>
 		</div>

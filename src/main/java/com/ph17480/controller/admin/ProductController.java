@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import javax.naming.Binding;
 import javax.persistence.Column;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ph17480.dto.ProductDTO;
@@ -26,6 +28,7 @@ import com.ph17480.mappers.ProductMapper;
 import com.ph17480.repositories.CategoryRepository;
 import com.ph17480.repositories.ProductRepositories;
 import com.ph17480.repositories.StorageService;
+import com.ph17480.utils.uploadFileUtils;
 
 @Controller
 @RequestMapping("admin/products")
@@ -42,6 +45,12 @@ public class ProductController {
 
 	@Autowired
 	private StorageService storageService;
+	
+	@Autowired
+	private uploadFileUtils uploadUtils;
+	
+	@Autowired
+	private HttpServletRequest request;
 
 	@GetMapping
 	public String index(Model model) {
@@ -61,24 +70,24 @@ public class ProductController {
 	}
 
 	@PostMapping("/store")
-	public String store(@Valid @ModelAttribute("product") ProductDTO proDTO, BindingResult result, Model model) {
+	public String store(@Valid @ModelAttribute("product") ProductDTO proDTO,
+			BindingResult result, Model model,
+			@RequestParam("image") MultipartFile uploadFile
+			
+			) {
 		if (result.hasErrors()) {
 			List<Category> listCate = this.cateRepo.findAll();
 			model.addAttribute("listCate", listCate);
 			model.addAttribute("view","/views/admin/products/create.jsp");
 			return "trangChu";
 		}
+		String image = request.getParameter("image");
 		Product entity = proMapper.convertToEntity(proDTO);
 		Category category = new Category();
 		category.setId(proDTO.getCategory());
 		entity.setCategory(category);
-		
-//		if (!proDTO.getImageFile().isEmpty()) {
-//			UUID uuid = UUID.randomUUID();
-//			String uuString = uuid.toString();
-//			entity.setImage(storageService.getStoredFileName(proDTO.getImageFile(), uuString));
-//			storageService.store(proDTO.getImageFile(), entity.getImage());
-//		}
+		entity.setImage(image);
+		this.uploadUtils.handleUploadFile(uploadFile);
 		this.proRepo.save(entity);
 		return "redirect:/admin/products";
 	}
