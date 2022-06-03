@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
-import com.ph17480.config.StorageProperties;
 
 @SpringBootApplication
 public class AssignmentJava5Application {
