@@ -13,7 +13,7 @@ public class ResourceConfig {
 		ReloadableResourceBundleMessageSource ms =
 			new ReloadableResourceBundleMessageSource();
 		
-		ms.setBasenames("classpath:messages/user");
+		ms.setBasenames("classpath:messages/product");
 		ms.setDefaultEncoding("UTF-8");
 		
 		return ms;

@@ -13,7 +13,7 @@
 		modelAttribute="cate">
 		<div class="form-group mt-3">
 			<label>ID</label>
-			<form:input path="id" type="id" class="form-control" />
+			<form:input path="id" type="id" class="form-control" readonly="true "/>
 			<form:errors path="id" element="span" cssClass="text-danger" />
 		</div>
 		<div class="form-group mt-3">

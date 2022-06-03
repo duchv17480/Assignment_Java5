@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class ProductDTO {
 	private Integer id;
 	@NotNull
-	@NotBlank
+	@NotBlank(message = "vui long nhap ho ten")
 	private String name;
 
 //	@NotNull
@@ -31,7 +31,7 @@ public class ProductDTO {
 	@NotNull(message = "vui lòng chọn ngày")
 	private Date createDate;
 	
-	@NotNull
+	@NotNull(message = "vui long nhap so luong")
 	private Integer available;
 	
 	@NotNull

@@ -9,7 +9,7 @@ import lombok.Data;
 public class CategoryDTO {
 	private Integer id;
 	@NotNull
-	@NotBlank
+	@NotBlank(message = "vui long nhap ")
 	private String name;
 
 }
