@@ -16,22 +16,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductDTO {
 	private Integer id;
-	@NotNull
-	@NotBlank(message = "vui long nhap ho ten")
+	
+	@NotBlank(message = "vui lòng nhập tên sản phẩm")
 	private String name;
 
-//	@NotNull
-//	@NotBlank
+	@NotNull
+	@NotBlank(message = "vui lòng chọn ảnh")
 	private String image;
 	
 	@NotNull
-	@Min(value = 0, message = "price phải lớn hơn 0") 
+	@Min(value = 0) 
 	private Integer price;
 	
-	@NotNull(message = "vui lòng chọn ngày")
+	@NotNull
 	private Date createDate;
 	
-	@NotNull(message = "vui long nhap so luong")
+	@NotNull
 	private Integer available;
 	
 	@NotNull

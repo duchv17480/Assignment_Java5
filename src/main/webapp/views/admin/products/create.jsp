@@ -51,6 +51,7 @@
 				<div class="form-group mt-3">
 					<input name="imageFile" onchange="chooseFile(this)" type="file"
 						class="form-control" />
+					<form:errors path="image" element="span" cssClass="text-danger" />
 					<h3>IMAGE</h3>
 				</div>
 			</div>

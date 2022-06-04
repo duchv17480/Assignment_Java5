@@ -22,5 +22,8 @@ public class ProductMapper {
 		return userDTO;
 
 	}
+	 public <C,E> C convertEntityAndDto(final E entity, Class<C> outputClass){
+	        return modelMapper.map(entity, outputClass);
+	    }
 
 }

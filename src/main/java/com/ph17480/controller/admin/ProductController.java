@@ -2,6 +2,7 @@ package com.ph17480.controller.admin;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.naming.Binding;
@@ -50,10 +51,10 @@ public class ProductController {
 
 	@Autowired
 	private uploadFileUtils uploadUtils;
-	
+
 	@Autowired
 	private HttpServletRequest request;
-
+	
 	@GetMapping
 	public String index(Model model) {
 		String pageParam = request.getParameter("page");
@@ -75,23 +76,23 @@ public class ProductController {
 		model.addAttribute("view", "/views/admin/products/create.jsp");
 		return "trangChu";
 	}
-	@GetMapping( value= "/edit/{id}")
+
+	@GetMapping(value = "/edit/{id}")
 	public String edit(Model model, @PathVariable("id") Product entity) {
 		model.addAttribute("product", entity);
 		List<Category> listCate = this.cateRepo.findAll();
 		model.addAttribute("listCate", listCate);
-		model.addAttribute("view","/views/admin/products/edit.jsp");
+		model.addAttribute("view", "/views/admin/products/edit.jsp");
 		return "trangChu";
 	}
+
 	@PostMapping("/store")
-	public String store(@Valid @ModelAttribute("product") ProductDTO proDTO,
-			BindingResult result, Model model,
-			@RequestParam("imageFile") MultipartFile uploadFile
-			) {
+	public String store(@Valid @ModelAttribute("product") ProductDTO proDTO, BindingResult result, Model model,
+			@RequestParam("imageFile") MultipartFile uploadFile) {
 		if (result.hasErrors()) {
 			List<Category> listCate = this.cateRepo.findAll();
 			model.addAttribute("listCate", listCate);
-			model.addAttribute("view","/views/admin/products/create.jsp");
+			model.addAttribute("view", "/views/admin/products/create.jsp");
 			return "trangChu";
 		}
 		Product entity = proMapper.convertToEntity(proDTO);
@@ -103,15 +104,14 @@ public class ProductController {
 		this.proRepo.save(entity);
 		return "redirect:/admin/products";
 	}
-	@PostMapping(value="/update/{id}")
-	public String update(@Valid @ModelAttribute("product") ProductDTO proDTO,
-			BindingResult result, Model model,
-			@RequestParam("imageFile") MultipartFile uploadFile
-			) {
+
+	@PostMapping(value = "/update/{id}")
+	public String update(@Valid @ModelAttribute("product") ProductDTO proDTO, BindingResult result, Model model,
+			@RequestParam("imageFile") MultipartFile uploadFile) {
 		if (result.hasErrors()) {
 			List<Category> listCate = this.cateRepo.findAll();
 			model.addAttribute("listCate", listCate);
-			model.addAttribute("view","/views/admin/products/create.jsp");
+			model.addAttribute("view", "/views/admin/products/create.jsp");
 			return "trangChu";
 		}
 		Product entity = proMapper.convertToEntity(proDTO);
@@ -123,16 +123,18 @@ public class ProductController {
 		this.proRepo.save(entity);
 		return "redirect:/admin/products";
 	}
+
 	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable("id")Product id) {
+	public String delete(@PathVariable("id") Product id) {
 		this.proRepo.delete(id);
 		return "redirect:/admin/products";
 	}
+
 	@GetMapping(value = "{id}")
-	public String show(Model model, @PathVariable("id") Product entity) {
-		ProductDTO product = this.proMapper.convertToDTO(entity);
+	public String show(Model model, @PathVariable("id") Integer  id) {
+		Product product = this.proRepo.getOne(id);
 		model.addAttribute("product", product);
-		model.addAttribute("view","/views/admin/accounts/show.jsp");
+		model.addAttribute("view", "/views/admin/products/show.jsp");
 		return "trangChu";
 	}
 }
