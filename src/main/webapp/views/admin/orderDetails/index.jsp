@@ -35,7 +35,7 @@
 						<td>${detail.price}</td>
 						<td>${detail.quantity}</td>
 						<td><a class="btn btn-primary"
-							href="${ pageContext.request.contextPath }/admin/orders/edit/${detail.id}">Update</a>
+							href="${ pageContext.request.contextPath }/admin/details/edit/${detail.id}">Update</a>
 						</td>
 						<td>
 							<form

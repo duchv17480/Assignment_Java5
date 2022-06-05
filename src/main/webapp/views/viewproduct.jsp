@@ -24,7 +24,7 @@
 					<li class="list-group-item">Còn : ${ product.available }</li>
 				</ul>
 				<div class="card-body">
-					<a href="#" class="card-link">Add to Cart</a> 
+					<a href="${ pageContext.request.contextPath }/admin/cart/add/${ product.id }"> Add to cart</a>
 					<a href="${ pageContext.request.contextPath }/admin/products/${ product.id }"class="card-link">Detail</a>
 				</div>
 			</div>

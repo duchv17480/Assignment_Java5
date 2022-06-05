@@ -56,6 +56,20 @@ public class OrderDetailController {
 		model.addAttribute("view","/views/admin/orderDetails/create.jsp");
 		return "trangChu";
 	}
+	@GetMapping("/edit/{id}")
+	public String edit(Model model , @PathVariable("id") OrderDetail entity) {
+		OrderDetailDTO orderDetail = this.orderDetailMapper.convertToDTO(entity);
+		model.addAttribute("orderDetail",orderDetail);
+		
+		List<Product> listProduct = this.proRepo.findAll();
+		model.addAttribute("listProduct",listProduct);
+		
+		List<Order> listOrder = this.orderRepo.findAll();
+		model.addAttribute("listOrder",listOrder);
+		
+		model.addAttribute("view","/views/admin/orderDetails/edit.jsp");
+		return "trangChu";
+	}
 	@PostMapping("/store")
 	public String store(Model model, @Valid @ModelAttribute("orderDetail") OrderDetailDTO detail, BindingResult result) {
 		if (result.hasErrors()) {
