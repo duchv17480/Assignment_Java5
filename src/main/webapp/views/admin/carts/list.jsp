@@ -24,7 +24,7 @@
 			</tr>
 			<c:set var="no" value="1"></c:set>
 			<c:forEach var="item" items="${cartItems}">
-				<form action="${ pageContext.request.contextPath }/shoppingCart/update">
+				<form action="${ pageContext.request.contextPath }/admin/cart/update">
 					<tr>
 						<td>${no}</td>
 						<td>${item.name}</td>
@@ -35,7 +35,7 @@
 							name="quantity" onblur="this.form.submit()"></td>
 						<td>${item.price}</td>
 						<td><a
-							href="${ pageContext.request.contextPath }/shoppingCart/remove/${item.id}">Remove</a>
+							href="${ pageContext.request.contextPath }/admin/cart/remove/${item.id}">Remove</a>
 						</td>
 					</tr>
 				</form>

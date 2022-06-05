@@ -14,21 +14,13 @@
 				data-bs-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img
-							src="
-                    https://mdbcdn.b-cdn.net/img/Photos/Slides/img (15).webp"
-							class="d-block w-100" alt="..." height="200px">
+						<img src="https://fptshop.com.vn/uploads/originals/2022/2/8/637799149033502315_nf_1200x628_1644214085.png"class="d-block w-100" alt="..." height="400px">
 					</div>
 					<div class="carousel-item">
-						<img
-							src="
-                    https://mdbcdn.b-cdn.net/img/Photos/Slides/img (22).webp"
-							class="d-block w-100" alt="..." height="200px">
+						<img src="https://fptshop.com.vn/uploads/originals/2018/12/10/636800515041963456_giam-bat-ngo.png"class="d-block w-100" alt="..." height="400px">
 					</div>
 					<div class="carousel-item">
-						<img
-							src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img (23).webp"
-							class="d-block w-100" alt="..." height="200px">
+						<img src="https://images.fpt.shop/unsafe/filters:quality(5)/fptshop.com.vn/uploads/images/tin-tuc/125136/Originals/NF%2CNE%2CRC(1200x628)%20(7).png"class="d-block w-100" alt="..." height="400px">
 					</div>
 				</div>
 				<button class="carousel-control-prev" type="button"
@@ -85,18 +77,16 @@
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item"><a href="">Lap Top</a><span
 							data-bs-toggle="tooltip" data-bs-placement="top" title="Giảm 90%"
-							class="badge bg-danger">Điện Thoại</span></li>
-						<li class="list-group-item"><a href="">Lâp trình jav</a></li>
-						<li class="list-group-item"><a href="">Lập Trình C#</a></li>
-						<li class="list-group-item"><a href="">SQL sever</a></li>
-						<li class="list-group-item"><a href="">Cở sở dữ liệu</a></li>
-						<li class="list-group-item"><a href="">Lập trình Android
-								nâng cao</a></li>
-						<li class="list-group-item"><a href="">Lập trình Android
-								cơ bản</a></li>
-						<li class="list-group-item"><a href="">Điện toán đám mây</a></li>
-						<li class="list-group-item"><a href="">Lập trình game</a></li>
-						<li class="list-group-item"><a href="">HTML&CSS</a></li>
+							class="badge bg-danger">Sale up to 100%</span></li>
+						<li class="list-group-item"><a href="">Hoàng Việt Đức</a></li>
+						<li class="list-group-item"><a href="">Hoàng Việt Đức</a></li>
+						<li class="list-group-item"><a href="">Hoàng Việt Đức</a></li>
+						<li class="list-group-item"><a href="">Hoàng Việt Đức</a></li>
+						<li class="list-group-item"><a href="">Hoàng Việt Đức</a></li>
+						<li class="list-group-item"><a href="">Hoàng Việt Đức</a></li>
+						<li class="list-group-item"><a href="">Hoàng Việt Đức</a></li>
+						<li class="list-group-item"><a href="">Hoàng Việt Đức</a></li>
+						<li class="list-group-item"><a href="https://www.facebook.com/ducfptpoly/">click to fb </a></li>
 					</ul>
 				</div>
 			</aside>
