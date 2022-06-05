@@ -28,17 +28,21 @@ public class CartController {
 	@GetMapping("/list")
 	public String list(Model model) {
 		Collection<CartItem> cartItem = cartService.getCartItems();
-		model.addAttribute("cartItem",cartItem);
-		model.addAttribute("total",cartService.getAmount());
-		model.addAttribute("NoOfItem",cartService.getCount());
-		return "admin/carts/list";
+		model.addAttribute("cartItems",cartItem);
+//		model.addAttribute("total",cartService.getAmount());
+//		model.addAttribute("NoOfItem",cartService.getCount());
+		model.addAttribute("view","/views/admin/carts/list.jsp");
+		return "trangChu";
 	}
 	@GetMapping("/add/{id}")
 	public String add (@PathVariable("id") Integer id) throws IllegalAccessException, InvocationTargetException {
 		Product product = proRepo.getOne(id);
 		if (product!=null) {
 			CartItem item = new CartItem();
-			BeanUtils.copyProperties(product, item);
+			item.setId(product.getId());
+			item.setName(product.getName());
+			item.setPrice(product.getPrice());
+			item.setImage(product.getImage());
 			item.setAvailable(1);
 			cartService.add(item);
 		}
