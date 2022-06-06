@@ -73,7 +73,14 @@ public class OrderDetailController {
 	@PostMapping("/store")
 	public String store(Model model, @Valid @ModelAttribute("orderDetail") OrderDetailDTO detail, BindingResult result) {
 		if (result.hasErrors()) {
-			model.addAttribute("view","/views/admin/orderDetails/index.jsp");
+			
+			List<Product> listProduct = this.proRepo.findAll();
+			model.addAttribute("listProduct",listProduct);
+			
+			List<Order> listOrder = this.orderRepo.findAll();
+			model.addAttribute("listOrder",listOrder);
+			
+			model.addAttribute("view","/views/admin/orderDetails/create.jsp");
 			return "trangChu";
 		}else {
 			OrderDetail entity = this.orderDetailMapper.convertToEntity(detail);
@@ -90,6 +97,7 @@ public class OrderDetailController {
 			return "redirect:/admin/details";
 		}
 	}
+	
 	
 	@PostMapping("delete/{id}")
 	public String delete(@PathVariable("id")Integer id) {

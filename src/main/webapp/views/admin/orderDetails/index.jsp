@@ -22,7 +22,7 @@
 					<td>Product</td>
 					<td>Price</td>
 					<td>Quantity</td>
-					<td colspan="2" class="text-center">Thao tác</td>
+					<td class="text-center">Thao tác</td>
 				</tr>
 			</thead>
 
@@ -34,9 +34,9 @@
 						<td>${detail.product.name}</td>
 						<td>${detail.price}</td>
 						<td>${detail.quantity}</td>
-						<td><a class="btn btn-primary"
+						<%-- <td><a class="btn btn-primary"
 							href="${ pageContext.request.contextPath }/admin/details/edit/${detail.id}">Update</a>
-						</td>
+						</td> --%>
 						<td>
 							<form
 								action="${ pageContext.request.contextPath }/admin/details/delete/${detail.id}"

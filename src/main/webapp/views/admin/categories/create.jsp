@@ -14,7 +14,7 @@
 		action="${ pageContext.request.contextPath }/admin/categories/store"
 		modelAttribute="cate">
 		<div class="border border-info m-3 bg-light">
-		<h2 class="text-center">Create new Category</h2>
+			<h2 class="text-center">Create new Category</h2>
 			<div class="form-group m-3">
 				<label>ID</label>
 				<form:input path="id" type="id" class="form-control"

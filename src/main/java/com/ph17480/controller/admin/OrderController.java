@@ -69,9 +69,10 @@ public class OrderController {
 	@PostMapping(value = "/store")
 	public String store(Model model, @Valid @ModelAttribute("order") OrderDTO orderDTO, BindingResult result){
 		if (result.hasErrors()) {
-			System.out.println("loi");
+			List<Account> listaccount = accountRepo.findAll();
+			model.addAttribute("listaccount", listaccount);
 			model.addAttribute("view","/views/admin/orders/create.jsp");
-			return "redirect:/admin/categories/create";
+			return "trangChu";
 		} else {
 			String getDate = request.getParameter("date");
 			Order entity = this.orderMapper.convertToEntity(orderDTO);
@@ -86,9 +87,10 @@ public class OrderController {
 	@PostMapping(value = "/update/{id}")
 	public String update(Model model, @Valid @ModelAttribute("order") OrderDTO orderDTO, BindingResult result){
 		if (result.hasErrors()) {
-			System.out.println("loi");
-			model.addAttribute("view","/views/admin/orders/create.jsp");
-			return "redirect:/admin/categories/create";
+			List<Account> listaccount = accountRepo.findAll();
+			model.addAttribute("listaccount", listaccount);
+			model.addAttribute("view","/views/admin/orders/edit.jsp");
+			return "trangChu";
 		} else {
 			String getDate = request.getParameter("createDate");
 			Order entity = this.orderMapper.convertToEntity(orderDTO);

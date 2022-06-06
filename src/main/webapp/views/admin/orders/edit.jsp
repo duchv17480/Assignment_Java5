@@ -15,6 +15,11 @@
 		action="${ pageContext.request.contextPath }/admin/orders/update/${ order.id }"
 		modelAttribute="order">
 		<div class="form-group mt-3">
+			<label>id</label>
+			<form:input path="id" class="form-control" readonly="true" />
+			<form:errors path="id" element="span" cssClass="text-danger" />
+		</div>
+		<div class="form-group mt-3">
 			<label>Create Date</label>
 			<form:input path="createDate" class="form-control" readonly="true" />
 			<form:errors path="createDate" element="span" cssClass="text-danger" />

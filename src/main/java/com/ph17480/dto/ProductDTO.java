@@ -20,18 +20,15 @@ public class ProductDTO {
 	@NotBlank(message = "vui lòng nhập tên sản phẩm")
 	private String name;
 
-	@NotNull
-	@NotBlank(message = "vui lòng chọn ảnh")
 	private String image;
 	
-	@NotNull
-	@Min(value = 0) 
+	@NotNull(message = "vui lòng nhập giá")
+	@Min(value = 0, message = "giá phải lớn hơn 0") 
 	private Integer price;
 	
-	@NotNull
 	private Date createDate;
 	
-	@NotNull
+	@NotNull(message = "vui lòng nhập số lượng")
 	private Integer available;
 	
 	@NotNull
