@@ -39,7 +39,7 @@ public class CartServiceIplm implements CartService{
 	@Override
 	public void update(int productID, int quantity) {
 		CartItem item = map.get(productID);
-		item.setAvailable(quantity + item.getAvailable());
+		item.setAvailable(quantity);
 		if (item.getAvailable() <= 0) {
 			map.remove(productID);
 		}

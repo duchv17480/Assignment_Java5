@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ph17480.dto.CartItem;
 import com.ph17480.entity.Product;
@@ -29,8 +31,8 @@ public class CartController {
 	public String list(Model model) {
 		Collection<CartItem> cartItem = cartService.getCartItems();
 		model.addAttribute("cartItems",cartItem);
-//		model.addAttribute("total",cartService.getAmount());
-//		model.addAttribute("NoOfItem",cartService.getCount());
+		model.addAttribute("total",cartService.getAmount());
+		model.addAttribute("NoOfItem",cartService.getCount());
 		model.addAttribute("view","/views/admin/carts/list.jsp");
 		return "trangChu";
 	}
@@ -47,6 +49,17 @@ public class CartController {
 			cartService.add(item);
 		}
 		return "redirect:/admin/cart/list";
+	}
+	@GetMapping("remove/{id}")
+	public String remove(@PathVariable("id") Integer id) {
+		cartService.remove(id);
+		return "redirect:/admin/cart/list";
+	}
+	@PostMapping("update")
+	public String update(@RequestParam("id") Integer id ,@RequestParam("quantity") Integer available) {
+		cartService.update(id, available);
+		return "redirect:/admin/cart/list";
+		
 	}
 
 }

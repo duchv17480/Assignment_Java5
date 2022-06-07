@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" href="/Assignment_Java5/css/bootstrap.min.css"></link>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 	<div class="container-fluid">
 		<header class="row">
@@ -65,9 +67,10 @@
 							href="/Assignment_Java5/admin/details">Order Detail</a></li>
 					</ul>
 					<form class="d-flex">
-						<input class="form-control me-2" type="search"
-							placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">Search</button>
+						<a class="btn btn-outline-success" href="/Assignment_Java5/admin/cart/list">
+							Giỏ Hàng <span data-bs-toggle="tooltip" data-bs-placement="top"
+								title="Giảm 90%" class="badge bg-danger">${ NoOfItem }</span>
+						</a>
 					</form>
 				</div>
 			</div>

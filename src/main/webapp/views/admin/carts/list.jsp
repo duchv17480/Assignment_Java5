@@ -24,16 +24,19 @@
 			</tr>
 			<c:set var="no" value="1"></c:set>
 			<c:forEach var="item" items="${cartItems}">
-				<form action="${ pageContext.request.contextPath }/admin/cart/update">
+				<form
+					action="${ pageContext.request.contextPath }/admin/cart/update"
+					method="POST">
 					<tr>
 						<td>${no}</td>
 						<td>${item.name}</td>
 						<td><img class="logo" alt=""
 							src="${pageContext.request.contextPath}/storage/${ item.image }"
 							style="height: 90px; width: 130px"></td>
-						<td><input type="number" value="${item.available}"
-							name="quantity" onblur="this.form.submit()"></td>
-						<td>${item.price}</td>
+						<td><input type="hidden" name="id" value="${ item.id }">
+							<input type="number" value="${item.available}" name="quantity"
+							onblur="this.form.submit()"></td>
+						<td>${ item.price }</td>
 						<td><a
 							href="${ pageContext.request.contextPath }/admin/cart/remove/${item.id}">Remove</a>
 						</td>
@@ -42,6 +45,9 @@
 				<c:set var="no" value="${ no + 1 }"></c:set>
 			</c:forEach>
 		</table>
+	</div>
+	<div class="border border-info mt-2 bg-light" style="width: 250px">
+		<h4 class="text-danger p-2">Tổng Tiền: $${ total }</h4>
 	</div>
 </body>
 </html>
