@@ -21,7 +21,7 @@
 					<td>Create Date</td>
 					<td>Address</td>
 					<td>User</td>
-					<td colspan="2" class="text-center">Thao tác</td>
+					<td colspan="3" class="text-center">Thao tác</td>
 				</tr>
 			</thead>
 
@@ -34,6 +34,9 @@
 						<td>${order.user.username}</td>
 						<td><a class="btn btn-primary"
 							href="${ pageContext.request.contextPath }/admin/orders/edit/${order.id}">Update</a>
+						</td>
+						<td><a class="btn btn-primary"
+							href="${ pageContext.request.contextPath }/admin/orders/${order.id}">Detail</a>
 						</td>
 						<td>
 							<form

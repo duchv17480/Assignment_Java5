@@ -18,13 +18,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ph17480.dto.AccountDTO;
 import com.ph17480.dto.CategoryDTO;
 import com.ph17480.dto.OrderDTO;
+import com.ph17480.dto.OrderDetailDTO;
 import com.ph17480.entity.Account;
 import com.ph17480.entity.Category;
 import com.ph17480.entity.Order;
+import com.ph17480.entity.OrderDetail;
+import com.ph17480.mappers.OrderDetailMapper;
 import com.ph17480.mappers.OrderMapper;
 import com.ph17480.repositories.AccountRepository;
+import com.ph17480.repositories.OrderDetailRepositories;
 import com.ph17480.repositories.OrderRepositories;
 
 @Controller
@@ -39,6 +44,9 @@ public class OrderController {
 	
 	@Autowired
 	private OrderMapper orderMapper;
+	
+	@Autowired
+	private OrderDetailRepositories orderDetail;
 	
 	@Autowired
 	private HttpServletRequest request;
@@ -107,6 +115,14 @@ public class OrderController {
 		this.orderRepo.delete(order);
 		return "redirect:/admin/orders";
 	}
+//	@GetMapping(value = "{id}")
+//	public String show(Model model, @PathVariable("id") Integer id) {
+//		List<OrderDetail> list =this.orderDetail.findOrder(id);
+//		System.out.println(list);
+//		model.addAttribute("Order", list);
+//		model.addAttribute("view","/views/admin/accounts/show.jsp");
+//		return "trangChu";
+//	}
 	
 	
 

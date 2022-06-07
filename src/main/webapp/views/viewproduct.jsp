@@ -11,8 +11,9 @@
 </head>
 <body>
 	<div class="row text-center">
-		<c:forEach items="${ listpro }" var="product">
-			<div class="card col-4 " style="width: 18rem; margin-left: 60px; margin-top: 10px">
+		<c:forEach items="${ pageData.content }" var="product">
+			<div class="card col-4 "
+				style="width: 18rem; margin-left: 60px; margin-top: 10px">
 				<img
 					src="${pageContext.request.contextPath}/storage/${ product.image }"
 					class="img-thumbnail" style="height: 200px; width: 330px">
@@ -24,11 +25,26 @@
 					<li class="list-group-item">Còn : ${ product.available }</li>
 				</ul>
 				<div class="card-body">
-					<a href="${ pageContext.request.contextPath }/admin/cart/add/${ product.id }"> Add to cart</a>
-					<a href="${ pageContext.request.contextPath }/admin/products/${ product.id }"class="card-link">Detail</a>
+					<a
+						href="${ pageContext.request.contextPath }/admin/cart/add/${ product.id }">
+						Add to cart</a> <a
+						href="${ pageContext.request.contextPath }/admin/products/${ product.id }"
+						class="card-link">Detail</a>
 				</div>
 			</div>
 		</c:forEach>
+	</div>
+	<div class="mt-2">
+		<c:if test="${not empty pageData.content }">
+			<ul class="pagination">
+				<c:forEach begin="0" end="${ pageData.totalPages - 1 }"
+					varStatus="page">
+					<li class="page-item"><a class="page-link"
+						href="${ pageContext.request.contextPath }/trangchu?page=${ page.index }">${ page.index + 1 }</a>
+					</li>
+				</c:forEach>
+			</ul>
+		</c:if>
 	</div>
 
 </body>

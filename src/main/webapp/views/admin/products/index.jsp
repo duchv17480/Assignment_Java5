@@ -8,6 +8,37 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<div class="col-10 offset-1 mt-5 border border-primary p-2 bg-light">
+		<form method="GET"
+			action="${ pageContext.request.contextPath }/admin/products">
+			<div class="row col-12 mt-2">
+				<div class="col-6">
+					<label>Sắp xếp theo</label> <select name="sort_by"
+						class="form-control">
+						<option value="id">Mặc định</option>
+						<option value="name">Tên Sản Phẩm</option>
+						<option value="price">Giá</option>
+						
+					</select>
+				</div>
+				<div class="col-6">
+					<label>Thứ tự</label> <select name="sort_direction"
+						class="form-control">
+						<option value="asc">Tăng dần</option>
+						<option value="desc">Giảm dần</option>
+					</select>
+				</div>
+			</div>
+
+			<div>
+				<button class="btn btn-primary mt-4">Lọc</button>
+				<a href="${ pageContext.request.contextPath }/admin/products"
+					class="btn btn-danger mt-4" type="reset"> Reset </a>
+			</div>
+		</form>
+	</div>
+
 	<div class="mt-5 col-10 offset-1 border border-primary p-2 bg-light">
 		<h1 class="text-center pt-2">Quản Lý Product</h1>
 		<div class="">
@@ -70,7 +101,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div>
+		<div class="mt-2">
 			<c:if test="${not empty pageData.content }">
 				<ul class="pagination">
 					<c:forEach begin="0" end="${ pageData.totalPages - 1 }"
