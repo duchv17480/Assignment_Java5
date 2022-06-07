@@ -115,14 +115,14 @@ public class OrderController {
 		this.orderRepo.delete(order);
 		return "redirect:/admin/orders";
 	}
-//	@GetMapping(value = "{id}")
-//	public String show(Model model, @PathVariable("id") Integer id) {
-//		List<OrderDetail> list =this.orderDetail.findOrder(id);
-//		System.out.println(list);
-//		model.addAttribute("Order", list);
-//		model.addAttribute("view","/views/admin/accounts/show.jsp");
-//		return "trangChu";
-//	}
+	@GetMapping(value = "{id}")
+	public String show(Model model, @PathVariable("id") Integer id) {
+		List<OrderDetail> list =this.orderDetail.findOrder(id);
+		System.out.println(list+"hahahahah");
+		model.addAttribute("listOrderDetail", list);
+		model.addAttribute("view","/views/admin/orderDetails/index.jsp");
+		return "trangChu";
+	}
 	
 	
 

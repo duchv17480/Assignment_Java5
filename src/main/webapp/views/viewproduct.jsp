@@ -27,8 +27,9 @@
 				<div class="card-body">
 					<a
 						href="${ pageContext.request.contextPath }/admin/cart/add/${ product.id }">
-						Add to cart</a> <a
-						href="${ pageContext.request.contextPath }/admin/products/${ product.id }"
+						Add to cart</a>
+					<3
+					<a href="${ pageContext.request.contextPath }/admin/products/${ product.id }"
 						class="card-link">Detail</a>
 				</div>
 			</div>
