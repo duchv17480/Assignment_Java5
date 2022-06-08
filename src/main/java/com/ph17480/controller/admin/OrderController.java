@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -52,9 +57,23 @@ public class OrderController {
 	private HttpServletRequest request;
 	
 	@GetMapping
-	public String index (Model model) {
-		List<Order> listorder= orderRepo.findAll();
-		model.addAttribute("listorder", listorder);
+	public String index(Model model) {
+		String sortBy = request.getParameter("sort_by");
+		String sortDirection = request.getParameter("sort_direction");
+		String pageParam = request.getParameter("page");
+		String limitParam = request.getParameter("limit");
+
+		String sortField = sortBy == null ? "id" : sortBy;
+		Sort sort = (sortDirection == null || sortDirection.equals("asc")) ? Sort.by(Direction.ASC, sortField)
+				: Sort.by(Direction.DESC, sortField);
+
+		int page = pageParam == null ? 0 : Integer.parseInt(pageParam);
+		int limit = limitParam == null ? 4 : Integer.parseInt(limitParam);
+		Pageable pageable = PageRequest.of(page, limit, sort);
+		
+		Page pageData = this.orderRepo.findAll(pageable);
+
+		model.addAttribute("pageData", pageData);
 		model.addAttribute("view","/views/admin/orders/index.jsp");
 		return "trangChu";
 	}

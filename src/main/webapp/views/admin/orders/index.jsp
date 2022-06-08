@@ -8,8 +8,35 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1 class="text-center pt-2">Quản Lý Order </h1>
+	<div class="col-10 offset-1 mt-5 border border-primary p-2 bg-light">
+		<form method="GET"
+			action="${ pageContext.request.contextPath }/admin/orders">
+			<div class="row col-12 mt-2">
+				<div class="col-6">
+					<label>Sắp xếp theo</label> <select name="sort_by"
+						class="form-control">
+						<option value="id">Mặc định</option>
+						<option value="createDate">Ngày Tạo</option>
+					</select>
+				</div>
+				<div class="col-6">
+					<label>Thứ tự</label> <select name="sort_direction"
+						class="form-control">
+						<option value="asc">Tăng dần</option>
+						<option value="desc">Giảm dần</option>
+					</select>
+				</div>
+			</div>
+
+			<div>
+				<button class="btn btn-primary mt-4">Lọc</button>
+				<a href="${ pageContext.request.contextPath }/admin/orders"
+					class="btn btn-danger mt-4" type="reset"> Reset </a>
+			</div>
+		</form>
+	</div>
 	<div class="mt-5 col-10 offset-1 border border-primary p-2 bg-light">
-	<h1 class="text-center pt-2">Quản Lý Order Detail</h1>
 		<div class="">
 			<a class="btn btn-success col-1"
 				href="${ pageContext.request.contextPath }/admin/orders/create">Create</a>
@@ -26,7 +53,7 @@
 			</thead>
 
 			<tbody>
-				<c:forEach items="${ listorder}" var="order">
+				<c:forEach items="${ pageData.content}" var="order">
 					<tr>
 						<td>${order.id}</td>
 						<td>${order.createDate}</td>
@@ -49,6 +76,17 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div>
+		<div class="mt-2">
+			<c:if test="${not empty pageData.content }">
+				<ul class="pagination">
+					<c:forEach begin="0" end="${ pageData.totalPages - 1 }"
+						varStatus="page">
+						<li class="page-item"><a class="page-link"
+							href="${ pageContext.request.contextPath }/admin/orders?page=${ page.index }">${ page.index + 1 }</a>
+						</li>
+					</c:forEach>
+				</ul>
+			</c:if>
+		</div>
 </body>
 </html>
