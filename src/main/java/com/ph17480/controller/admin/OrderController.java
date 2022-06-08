@@ -129,7 +129,7 @@ public class OrderController {
 			return "redirect:/admin/orders";
 		}
 	}
-	@PostMapping("/delete/{id}")
+	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable("id")Order order) {
 		this.orderRepo.delete(order);
 		return "redirect:/admin/orders";

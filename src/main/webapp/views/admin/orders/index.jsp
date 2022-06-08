@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 class="text-center pt-2">Quản Lý Order </h1>
+	<h1 class="text-center pt-2">Quản Lý Order</h1>
 	<div class="col-10 offset-1 mt-5 border border-primary p-2 bg-light">
 		<form method="GET"
 			action="${ pageContext.request.contextPath }/admin/orders">
@@ -65,13 +65,28 @@
 						<td><a class="btn btn-primary"
 							href="${ pageContext.request.contextPath }/admin/orders/${order.id}">Detail</a>
 						</td>
-						<td>
-							<form
-								action="${ pageContext.request.contextPath }/admin/orders/delete/${order.id}"
-								method="POST">
-								<button class="btn btn-danger">Delete</button>
-							</form>
-						</td>
+						<td><button type="button" class="btn btn-danger"
+								data-bs-toggle="modal" data-bs-target="#p${order.id}">Xóa</button>
+							<!-- Modal -->
+							<div class="modal fade" id="p${order.id }" tabindex="-1"
+								aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+											<button type="button" class="btn-close"
+												data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">Bạn có chắc chắn muốn xóa không?</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-bs-dismiss="modal">Hủy</button>
+											<a class="btn btn-danger"
+												href="${ pageContext.request.contextPath }/admin/orders/delete/${order.id}">Xóa</a>
+										</div>
+									</div>
+								</div>
+							</div></td>
 					</tr>
 				</c:forEach>
 			</tbody>
