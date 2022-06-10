@@ -10,7 +10,7 @@
 	href="${ pageContext.request.contextPath }/css/bootstrap.min.css"></link>
 </head>
 <body>
-	<div class="row text-center">
+	<div class="row text-center"> 
 		<c:forEach items="${ pageData.content }" var="product">
 			<div class="card col-4 "
 				style="width: 18rem; margin-left: 60px; margin-top: 10px">

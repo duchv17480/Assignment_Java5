@@ -42,7 +42,7 @@ public class view {
 		Pageable pageable = PageRequest.of(page, limit);
 		
 		Page pageData = this.proRepo.findAll(pageable);
-
+		model.addAttribute("NoOfItem",cartService.getCount());
 		model.addAttribute("pageData", pageData);
 		model.addAttribute("view", "/views/viewproduct.jsp");
 		return "trangChu";
