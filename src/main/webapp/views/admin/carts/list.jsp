@@ -19,7 +19,7 @@
 				<td>Name</td>
 				<td>Image</td>
 				<td>Quantity</td>
-				<td>Price</td>
+				<td>Total</td>
 				<td>Thao Tác</td>
 			</tr>
 			<c:set var="no" value="1"></c:set>
@@ -46,8 +46,9 @@
 			</c:forEach>
 		</table>
 	</div>
-	<div class="border border-info mt-2 bg-light" style="width: 250px">
-		<h4 class="text-danger p-2">Tổng Tiền: $${ total }</h4>
+	<a class="btn btn-info mt-2">Thanh toán</a>
+	<div class="border border-info mt-2 bg-light" style="width: 400px">
+		<h4 class="text-danger p-2">Tổng giá trị đơn hàng: $${ total }</h4>
 	</div>
 </body>
 </html>

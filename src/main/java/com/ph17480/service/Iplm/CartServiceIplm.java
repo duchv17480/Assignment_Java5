@@ -18,6 +18,7 @@ public class CartServiceIplm implements CartService{
 	public void add(CartItem item) {
 		CartItem exitseditem = map.get(item.getId());
 		if (exitseditem !=null) {
+			exitseditem.setPrice(item.getPrice()+exitseditem.getPrice());
 			exitseditem.setAvailable(item.getAvailable()+exitseditem.getAvailable());
 		}else {
 			map.put(item.getId(), item);
@@ -37,8 +38,9 @@ public class CartServiceIplm implements CartService{
 	}
 
 	@Override
-	public void update(int productID, int quantity) {
+	public void update(int productID, int quantity, int total) {
 		CartItem item = map.get(productID);
+		item.setPrice(total);
 		item.setAvailable(quantity);
 		if (item.getAvailable() <= 0) {
 			map.remove(productID);
@@ -48,7 +50,7 @@ public class CartServiceIplm implements CartService{
 
 	@Override
 	public double getAmount() {
-		return map.values().stream().mapToDouble(item -> item.getAvailable() * item.getPrice()).sum();
+		return map.values().stream().mapToInt(item -> item.getPrice()).sum();
 
 	}
 	@Override

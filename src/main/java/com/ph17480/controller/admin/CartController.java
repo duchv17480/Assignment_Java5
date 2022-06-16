@@ -57,7 +57,9 @@ public class CartController {
 	}
 	@PostMapping("update")
 	public String update(@RequestParam("id") Integer id ,@RequestParam("quantity") Integer available) {
-		cartService.update(id, available);
+		Product product = proRepo.getOne(id);
+		int total = product.getPrice()*available;
+		cartService.update(id, available, total);
 		return "redirect:/admin/cart/list";
 		
 	}

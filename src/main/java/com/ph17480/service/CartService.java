@@ -14,7 +14,7 @@ public interface CartService {
 
 	double getAmount();
 
-	void update(int productID, int quantity);
+	void update(int productID, int quantity, int total);
 
 	void clear();
 
